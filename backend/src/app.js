@@ -12,7 +12,15 @@ const dashboardRoutes = require('./routes/dashboard');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// CORS: permite peticiones desde el frontend
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',')
+  : ['http://localhost:5173', 'http://localhost:5174'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 
 //Rutas 
