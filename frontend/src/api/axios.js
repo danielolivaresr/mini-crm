@@ -1,11 +1,14 @@
+// src/api/axios.js
+
 import axios from 'axios';
 
-// Instancia preconfigurada para llamar a nuestra API
+// Lee la URL del backend desde las variables de entorno (Vite)
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL,
 });
 
-// Interceptor: añade el token JWT a TODAS las peticiones automáticamente
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -14,7 +17,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor: si recibimos 401 (token caducado), limpiar y redirigir al login
 api.interceptors.response.use(
   (response) => response,
   (error) => {
