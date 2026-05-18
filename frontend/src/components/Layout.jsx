@@ -35,7 +35,7 @@ export default function Layout() {
               <div className="w-7 h-7 bg-navy-900 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="font-semibold text-slate-900">Mini CRM</span>
+              <span className="font-semibold text-slate-900">Tiny CRM</span>
             </div>
           </div>
 

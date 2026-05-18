@@ -36,7 +36,7 @@ export default function Login() {
           <div className="inline-flex items-center justify-center w-10 h-10 bg-navy-900 rounded-md mb-3">
             <span className="text-white font-bold text-lg">M</span>
           </div>
-          <h1 className="text-xl font-semibold text-slate-900">Mini CRM</h1>
+          <h1 className="text-xl font-semibold text-slate-900">Tiny CRM</h1>
           <p className="text-sm text-slate-500 mt-1">
             Inicia sesión para acceder a tu cuenta
           </p>
@@ -81,7 +81,7 @@ export default function Login() {
         </div>
 
         <p className="text-center text-xs text-slate-400 mt-6">
-          © 2026 Mini CRM. Todos los derechos reservados.
+          © 2026 Tiny CRM.
         </p>
       </div>
     </div>

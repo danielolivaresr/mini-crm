@@ -48,6 +48,6 @@ app.listen(PORT, async () => {
     await pool.query('SELECT 1');
     console.log('Conexión a MySQL establecida');
   } catch (error) {
-    console.error('Error conectando a MySQL ❌', error.message);
+    console.error('Error conectando a MySQL', error.message);
   }
 });
