@@ -108,15 +108,15 @@ export default function LeadsPage() {
 
       {loading ? (
         <Card>
-          <div className="p-8 text-center text-sm text-slate-500">Cargando oportunidades...</div>
+          <div className="p-8 text-center text-sm text-ink-muted">Cargando oportunidades...</div>
         </Card>
       ) : leads.length === 0 ? (
         <Card>
           <div className="p-12 text-center">
-            <p className="text-slate-700 font-medium mb-1">
+            <p className="text-ink-soft font-medium mb-1">
               {statusFilter ? 'No hay oportunidades con este estado' : 'No tienes oportunidades todavía'}
             </p>
-            <p className="text-sm text-slate-500 mb-4">
+            <p className="text-sm text-ink-muted mb-4">
               {statusFilter
                 ? 'Prueba a cambiar el filtro o crea una oportunidad nueva.'
                 : 'Crea tu primera oportunidad para empezar el seguimiento.'}
@@ -130,23 +130,23 @@ export default function LeadsPage() {
       ) : (
         <Card>
           <table className="w-full">
-            <thead className="bg-slate-50 border-b border-slate-200">
+            <thead className="bg-canvas border-b border-line">
               <tr>
-                <th className="text-left  px-5 py-3 text-xs font-medium text-slate-500 uppercase tracking-wide">Título</th>
-                <th className="text-left  px-5 py-3 text-xs font-medium text-slate-500 uppercase tracking-wide">Cliente</th>
-                <th className="text-right px-5 py-3 text-xs font-medium text-slate-500 uppercase tracking-wide">Valor</th>
-                <th className="text-left  px-5 py-3 text-xs font-medium text-slate-500 uppercase tracking-wide">Estado</th>
+                <th className="text-left  px-5 py-3 text-xs font-medium text-ink-muted uppercase tracking-wide">Título</th>
+                <th className="text-left  px-5 py-3 text-xs font-medium text-ink-muted uppercase tracking-wide">Cliente</th>
+                <th className="text-right px-5 py-3 text-xs font-medium text-ink-muted uppercase tracking-wide">Valor</th>
+                <th className="text-left  px-5 py-3 text-xs font-medium text-ink-muted uppercase tracking-wide">Estado</th>
                 <th className="px-5 py-3 w-px"></th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200">
+            <tbody className="divide-y divide-line">
               {leads.map(lead => {
                 const meta = STATUS_META[lead.status] || STATUS_META.nuevo;
                 return (
-                  <tr key={lead.id} className="hover:bg-slate-50">
-                    <td className="px-5 py-3 text-sm font-medium text-slate-900">{lead.title}</td>
-                    <td className="px-5 py-3 text-sm text-slate-700">{lead.client_name}</td>
-                    <td className="px-5 py-3 text-sm text-slate-700 text-right tabular-nums">
+                  <tr key={lead.id} className="hover:bg-surface-hover">
+                    <td className="px-5 py-3 text-sm font-medium text-ink">{lead.title}</td>
+                    <td className="px-5 py-3 text-sm text-ink-soft">{lead.client_name}</td>
+                    <td className="px-5 py-3 text-sm text-ink-soft text-right tabular-nums">
                       {formatCurrency(lead.value)}
                     </td>
                     <td className="px-5 py-3">
@@ -156,14 +156,14 @@ export default function LeadsPage() {
                       <div className="flex gap-1 justify-end">
                         <button
                           onClick={() => handleEdit(lead)}
-                          className="p-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-700 rounded"
+                          className="p-1.5 text-ink-muted hover:bg-surface-active hover:text-ink-soft rounded"
                           title="Editar"
                         >
                           <Pencil size={14} />
                         </button>
                         <button
                           onClick={() => handleDelete(lead)}
-                          className="p-1.5 text-slate-500 hover:bg-red-50 hover:text-red-600 rounded"
+                          className="p-1.5 text-ink-muted hover:bg-danger-soft hover:text-danger rounded"
                           title="Eliminar"
                         >
                           <Trash2 size={14} />
@@ -217,8 +217,8 @@ function FilterChip({ active, onClick, children }) {
       onClick={onClick}
       className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
         active
-          ? 'bg-navy-900 text-white'
-          : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50'
+          ? 'bg-primary text-primary-fg'
+          : 'bg-surface text-ink-soft border border-line-strong hover:bg-surface-hover'
       }`}
     >
       {children}

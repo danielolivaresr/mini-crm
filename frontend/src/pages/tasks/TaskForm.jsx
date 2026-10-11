@@ -70,8 +70,8 @@ export default function TaskForm({ initialData, onSubmit }) {
     : leads;
 
   const selectClass =
-    'w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md ' +
-    'focus:outline-none focus:ring-2 focus:ring-navy-500/30 focus:border-navy-500';
+    'w-full px-3 py-2 text-sm bg-surface border border-line-strong rounded-md ' +
+    'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary';
 
   return (
     <form id="task-form" onSubmit={handleSubmit} className="space-y-4">
@@ -86,7 +86,7 @@ export default function TaskForm({ initialData, onSubmit }) {
       />
 
       <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-ink-soft">
           Descripción
         </label>
         <textarea
@@ -94,7 +94,7 @@ export default function TaskForm({ initialData, onSubmit }) {
           value={form.description}
           onChange={handleChange}
           rows={2}
-          className="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-500/30 focus:border-navy-500"
+          className="w-full px-3 py-2 text-sm bg-surface border border-line-strong rounded-md placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
         />
       </div>
 
@@ -108,7 +108,7 @@ export default function TaskForm({ initialData, onSubmit }) {
         />
 
         <div className="space-y-1.5">
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="block text-sm font-medium text-ink-soft">
             Cliente
           </label>
           <select
@@ -130,7 +130,7 @@ export default function TaskForm({ initialData, onSubmit }) {
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-ink-soft">
           Oportunidad
         </label>
         <select
@@ -146,7 +146,7 @@ export default function TaskForm({ initialData, onSubmit }) {
           ))}
         </select>
         {form.client_id && filteredLeads.length === 0 && (
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-ink-muted">
             Este cliente no tiene oportunidades.
           </p>
         )}
@@ -158,9 +158,9 @@ export default function TaskForm({ initialData, onSubmit }) {
           name="completed"
           checked={form.completed}
           onChange={handleChange}
-          className="w-4 h-4 rounded border-slate-300 text-navy-900 focus:ring-2 focus:ring-navy-500/30"
+          className="w-4 h-4 rounded border-line-strong text-primary-strong focus:ring-2 focus:ring-primary/30"
         />
-        <span className="text-sm text-slate-700">
+        <span className="text-sm text-ink-soft">
           Marcar como completada
         </span>
       </label>

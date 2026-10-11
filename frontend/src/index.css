@@ -3,12 +3,121 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Tokens de color del tema. Los componentes usan estos nombres
+   * (bg-surface, text-ink-muted, bg-primary…) y aquí se decide el color real.
+   * Se guardan como canales RGB para que funcionen las opacidades de
+   * Tailwind (p. ej. ring-primary/30).
+   */
+  :root {
+    color-scheme: light;
+
+    /* Superficies */
+    --canvas:         248 250 252;  /* fondo de la app */
+    --surface:        255 255 255;  /* tarjetas, inputs, barra lateral */
+    --surface-hover:  248 250 252;
+    --surface-active: 241 245 249;
+    --overlay:        15 23 42;     /* velo de los modales */
+
+    /* Bordes */
+    --line:           226 232 240;
+    --line-strong:    203 213 225;
+
+    /* Texto */
+    --ink:            15 23 42;
+    --ink-soft:       51 65 85;
+    --ink-muted:      100 116 139;
+    --ink-faint:      148 163 184;
+
+    /* Color de marca (violeta) */
+    --primary:        109 95 245;   /* #6D5FF5 */
+    --primary-hover:  91 79 212;
+    --primary-strong: 73 64 168;    /* texto sobre fondos claros */
+    --primary-soft:   241 239 254;
+    --primary-line:   199 191 252;
+    --primary-fg:     255 255 255;  /* texto sobre el primario */
+
+    /* Estados */
+    --danger:         220 38 38;
+    --danger-strong:  185 28 28;
+    --danger-soft:    254 242 242;
+    --danger-line:    254 202 202;
+
+    --success:        5 150 105;
+    --success-strong: 4 120 87;
+    --success-soft:   236 253 245;
+    --success-line:   167 243 208;
+
+    --warning-strong: 180 83 9;
+    --warning-soft:   255 251 235;
+    --warning-line:   253 230 138;
+
+    --info-strong:    29 78 216;
+    --info-soft:      239 246 255;
+    --info-line:      191 219 254;
+
+    /* Sombras */
+    --shadow-subtle: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+    --shadow-card:   0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  }
+
   html {
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    color: #0F172A;
+    color: rgb(var(--ink));
   }
   body {
-    background-color: #F8FAFC;
+    background-color: rgb(var(--canvas));
   }
+}
+
+/*
+ * Tema oscuro: se activa añadiendo la clase "dark" a <html>.
+ * Va fuera de @layer para que Tailwind no lo descarte mientras
+ * ningún componente use esa clase.
+ */
+.dark {
+  color-scheme: dark;
+
+  --canvas:         15 15 19;
+  --surface:        24 24 31;
+  --surface-hover:  32 32 41;
+  --surface-active: 42 42 53;
+  --overlay:        0 0 0;
+
+  --line:           42 42 53;
+  --line-strong:    58 58 72;
+
+  --ink:            241 245 249;
+  --ink-soft:       203 213 225;
+  --ink-muted:      148 163 184;
+  --ink-faint:      100 116 139;
+
+  --primary:        109 95 245;
+  --primary-hover:  122 107 246;
+  --primary-strong: 169 156 249;
+  --primary-soft:   36 32 72;
+  --primary-line:   58 51 130;
+  --primary-fg:     255 255 255;
+
+  --danger:         248 113 113;
+  --danger-strong:  252 165 165;
+  --danger-soft:    60 20 24;
+  --danger-line:    127 29 29;
+
+  --success:        52 211 153;
+  --success-strong: 110 231 183;
+  --success-soft:   6 46 36;
+  --success-line:   6 95 70;
+
+  --warning-strong: 252 211 77;
+  --warning-soft:   56 38 6;
+  --warning-line:   120 53 15;
+
+  --info-strong:    147 197 253;
+  --info-soft:      16 32 66;
+  --info-line:      30 64 175;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-card:   0 4px 12px -2px rgba(0, 0, 0, 0.4);
 }

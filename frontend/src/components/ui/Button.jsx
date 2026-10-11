@@ -11,7 +11,7 @@ export default function Button({
   const base =
     'inline-flex items-center justify-center gap-2 font-medium ' +
     'rounded-md transition-colors focus:outline-none focus:ring-2 ' +
-    'focus:ring-offset-2 focus:ring-navy-500 disabled:opacity-50 ' +
+    'focus:ring-offset-2 focus:ring-primary disabled:opacity-50 ' +
     'disabled:cursor-not-allowed';
 
   const sizes = {
@@ -21,13 +21,13 @@ export default function Button({
 
   const variants = {
     primary:
-      'bg-navy-900 text-white hover:bg-navy-800 active:bg-navy-900',
+      'bg-primary text-primary-fg hover:bg-primary-hover active:bg-primary',
     secondary:
-      'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50',
+      'bg-surface text-ink-soft border border-line-strong hover:bg-surface-hover',
     ghost:
-      'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
+      'text-ink-muted hover:bg-surface-active hover:text-ink',
     danger:
-      'bg-white text-red-700 border border-red-200 hover:bg-red-50',
+      'bg-surface text-danger-strong border border-danger-line hover:bg-danger-soft',
   };
 
   return (

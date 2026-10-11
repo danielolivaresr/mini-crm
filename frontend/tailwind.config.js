@@ -1,3 +1,5 @@
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,37 +8,54 @@ export default {
   ],
   theme: {
     extend: {
+      // Los colores salen de las variables CSS definidas en src/index.css
       colors: {
-        // Acento de marca (violeta)
-        accent: {
-          50:  '#F1EFFE',
-          100: '#E3DFFD',
-          200: '#C7BFFC',
-          300: '#A99CF9',
-          400: '#8A79F7',
-          500: '#7A6BF6',
-          600: '#6D5FF5',   // ← color principal de la marca
-          700: '#5B4FD4',
-          800: '#4940A8',
-          900: '#3A3382',
-        },
-        // Mantenemos navy por si quieres usarla en algún sitio puntual
-        navy: {
-          50:  '#EEF2F8',
-          100: '#D9E1ED',
-          200: '#B3C3DB',
-          300: '#8DA5C9',
-          400: '#5A78A8',
-          500: '#2F4D80',
-          600: '#1E3A6B',
-          700: '#152F58',
-          800: '#122E55',
-          900: '#0B1F3A',
-        },
-        // Tokens semánticos del tema oscuro
+        canvas: token('canvas'),
+        overlay: token('overlay'),
         surface: {
-          base: '#0F0F13',   // fondo principal de la app
-          card: '#18181F',   // tarjetas y superficies elevadas
+          DEFAULT: token('surface'),
+          hover:   token('surface-hover'),
+          active:  token('surface-active'),
+        },
+        line: {
+          DEFAULT: token('line'),
+          strong:  token('line-strong'),
+        },
+        ink: {
+          DEFAULT: token('ink'),
+          soft:    token('ink-soft'),
+          muted:   token('ink-muted'),
+          faint:   token('ink-faint'),
+        },
+        primary: {
+          DEFAULT: token('primary'),
+          hover:   token('primary-hover'),
+          strong:  token('primary-strong'),
+          soft:    token('primary-soft'),
+          line:    token('primary-line'),
+          fg:      token('primary-fg'),
+        },
+        danger: {
+          DEFAULT: token('danger'),
+          strong:  token('danger-strong'),
+          soft:    token('danger-soft'),
+          line:    token('danger-line'),
+        },
+        success: {
+          DEFAULT: token('success'),
+          strong:  token('success-strong'),
+          soft:    token('success-soft'),
+          line:    token('success-line'),
+        },
+        warning: {
+          strong:  token('warning-strong'),
+          soft:    token('warning-soft'),
+          line:    token('warning-line'),
+        },
+        info: {
+          strong:  token('info-strong'),
+          soft:    token('info-soft'),
+          line:    token('info-line'),
         },
       },
       fontFamily: {
@@ -54,9 +73,9 @@ export default {
         DEFAULT: '6px',
       },
       boxShadow: {
-        // Sombras adaptadas a fondo oscuro
-        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.3)',
-        'card':   '0 4px 12px -2px rgba(0, 0, 0, 0.4)',
+        // Cada tema define las suyas en src/index.css
+        'subtle': 'var(--shadow-subtle)',
+        'card':   'var(--shadow-card)',
       },
     },
   },
