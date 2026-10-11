@@ -4,6 +4,7 @@ import { useAuth } from '../context/useAuth';
 import Button from '../components/ui/Button';
 import Input  from '../components/ui/Input';
 import ThemeToggle from '../components/ThemeToggle';
+import logo from '../assets/logo.svg';
 
 export default function Login() {
   const [email, setEmail]       = useState('');
@@ -35,10 +36,8 @@ export default function Login() {
       <div className="w-full max-w-sm">
         {/* Marca arriba */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3">
-            <span className="text-primary-fg font-bold text-lg">M</span>
-          </div>
-          <h1 className="text-xl font-semibold text-ink">Tiny CRM</h1>
+          <img src={logo} alt="" className="inline-block w-14 h-14 mb-3" />
+          <h1 className="text-xl font-semibold text-ink">Pulsar CRM</h1>
           <p className="text-sm text-ink-muted mt-1">
             Inicia sesión para acceder a tu cuenta
           </p>
@@ -83,7 +82,7 @@ export default function Login() {
         </div>
 
         <p className="text-center text-xs text-ink-faint mt-6">
-          © 2026 Tiny CRM.
+          © 2026 Pulsar CRM.
         </p>
       </div>
     </div>

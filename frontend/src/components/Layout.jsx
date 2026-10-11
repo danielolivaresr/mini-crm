@@ -2,6 +2,7 @@ import { Link, useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/useAuth';
 import { LayoutDashboard, Users, Target, CheckSquare, LogOut } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import logo from '../assets/logo.svg';
 
 export default function Layout() {
   const { user, logout } = useAuth();
@@ -33,10 +34,8 @@ export default function Layout() {
         <aside className="w-60 bg-surface border-r border-line min-h-screen flex flex-col">
           <div className="px-5 py-5 border-b border-line">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-fg font-bold text-sm">M</span>
-              </div>
-              <span className="font-semibold text-ink">Tiny CRM</span>
+              <img src={logo} alt="" className="w-7 h-7" />
+              <span className="font-semibold text-ink">Pulsar CRM</span>
             </div>
           </div>
 

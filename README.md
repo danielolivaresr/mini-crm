@@ -1,4 +1,4 @@
-# Tiny CRM
+# Pulsar CRM
 
 > Aplicación web para la gestión de clientes, oportunidades comerciales y tareas.
 > Trabajo Final del Ciclo Superior de Desarrollo de Aplicaciones Web (DAW).
