@@ -1,7 +1,7 @@
 export default function Card({ children, className = '', ...rest }) {
   return (
     <div
-      className={`bg-white border border-slate-200 rounded-md shadow-subtle ${className}`}
+      className={`bg-surface border border-line rounded-md shadow-subtle ${className}`}
       {...rest}
     >
       {children}
@@ -11,7 +11,7 @@ export default function Card({ children, className = '', ...rest }) {
 
 export function CardHeader({ children, className = '' }) {
   return (
-    <div className={`px-5 py-4 border-b border-slate-200 ${className}`}>
+    <div className={`px-5 py-4 border-b border-line ${className}`}>
       {children}
     </div>
   );

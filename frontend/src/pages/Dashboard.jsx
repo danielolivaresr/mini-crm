@@ -50,7 +50,7 @@ export default function Dashboard() {
       <div>
         <PageHeader title="Dashboard" />
         <Card>
-          <div className="p-8 text-center text-sm text-slate-500">
+          <div className="p-8 text-center text-sm text-ink-muted">
             Cargando estadísticas...
           </div>
         </Card>
@@ -63,7 +63,7 @@ export default function Dashboard() {
       <div>
         <PageHeader title="Dashboard" />
         <Card>
-          <div className="p-8 text-center text-sm text-slate-500">
+          <div className="p-8 text-center text-sm text-ink-muted">
             No se pudieron cargar las estadísticas.
           </div>
         </Card>
@@ -112,32 +112,32 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Oportunidades recientes */}
         <Card>
-          <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-900">
+          <div className="px-5 py-4 border-b border-line flex items-center justify-between">
+            <h2 className="text-sm font-semibold text-ink">
               Últimas oportunidades
             </h2>
             <Link
               to="/leads"
-              className="text-xs text-navy-700 hover:text-navy-900 font-medium"
+              className="text-xs text-primary hover:text-primary-strong font-medium"
             >
               Ver todas →
             </Link>
           </div>
           {stats.recentLeads.length === 0 ? (
-            <div className="p-8 text-center text-sm text-slate-500">
+            <div className="p-8 text-center text-sm text-ink-muted">
               No hay oportunidades todavía
             </div>
           ) : (
-            <ul className="divide-y divide-slate-200">
+            <ul className="divide-y divide-line">
               {stats.recentLeads.map(lead => {
                 const meta = STATUS_META[lead.status] || STATUS_META.nuevo;
                 return (
                   <li key={lead.id} className="px-5 py-3 flex items-center justify-between gap-3">
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-slate-900 truncate">
+                      <p className="text-sm font-medium text-ink truncate">
                         {lead.title}
                       </p>
-                      <p className="text-xs text-slate-500 mt-0.5">
+                      <p className="text-xs text-ink-muted mt-0.5">
                         {lead.client_name} · {formatCurrency(lead.value)}
                       </p>
                     </div>
@@ -151,32 +151,32 @@ export default function Dashboard() {
 
         {/* Próximas tareas */}
         <Card>
-          <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-900">
+          <div className="px-5 py-4 border-b border-line flex items-center justify-between">
+            <h2 className="text-sm font-semibold text-ink">
               Próximas tareas
             </h2>
             <Link
               to="/tasks"
-              className="text-xs text-navy-700 hover:text-navy-900 font-medium"
+              className="text-xs text-primary hover:text-primary-strong font-medium"
             >
               Ver todas →
             </Link>
           </div>
           {stats.upcomingTasks.length === 0 ? (
-            <div className="p-8 text-center text-sm text-slate-500">
+            <div className="p-8 text-center text-sm text-ink-muted">
               No hay tareas pendientes con fecha
             </div>
           ) : (
-            <ul className="divide-y divide-slate-200">
+            <ul className="divide-y divide-line">
               {stats.upcomingTasks.map(task => {
                 const isOverdue = new Date(task.due_date) < new Date(new Date().setHours(0,0,0,0));
                 return (
                   <li key={task.id} className="px-5 py-3 flex items-center justify-between gap-3">
-                    <p className="text-sm text-slate-900 truncate flex-1">
+                    <p className="text-sm text-ink truncate flex-1">
                       {task.title}
                     </p>
                     <span className={`text-xs whitespace-nowrap flex items-center gap-1 ${
-                      isOverdue ? 'text-red-600 font-medium' : 'text-slate-500'
+                      isOverdue ? 'text-danger font-medium' : 'text-ink-muted'
                     }`}>
                       {isOverdue && <AlertCircle size={12} />}
                       {formatDate(task.due_date)}

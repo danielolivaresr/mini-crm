@@ -55,13 +55,13 @@ export default function LeadForm({ initialData, onSubmit }) {
 
   // Clases del select reutilizadas
   const selectClass =
-    'w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md ' +
-    'focus:outline-none focus:ring-2 focus:ring-navy-500/30 focus:border-navy-500';
+    'w-full px-3 py-2 text-sm bg-surface border border-line-strong rounded-md ' +
+    'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary';
 
   return (
     <form id="lead-form" onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-ink-soft">
           Cliente *
         </label>
         <select
@@ -99,7 +99,7 @@ export default function LeadForm({ initialData, onSubmit }) {
           placeholder="0.00"
         />
         <div className="space-y-1.5">
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="block text-sm font-medium text-ink-soft">
             Estado
           </label>
           <select
@@ -116,7 +116,7 @@ export default function LeadForm({ initialData, onSubmit }) {
       </div>
 
       <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-ink-soft">
           Notas
         </label>
         <textarea
@@ -124,7 +124,7 @@ export default function LeadForm({ initialData, onSubmit }) {
           value={form.notes}
           onChange={handleChange}
           rows={3}
-          className="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-md placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-500/30 focus:border-navy-500"
+          className="w-full px-3 py-2 text-sm bg-surface border border-line-strong rounded-md placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
         />
       </div>
     </form>

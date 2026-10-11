@@ -8,6 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Tiny CRM</title>
+    <script>
+      // Aplica el tema guardado antes de pintar para que no parpadee en claro
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -122,17 +122,17 @@ export default function TasksPage() {
 
       {loading ? (
         <Card>
-          <div className="p-8 text-center text-sm text-slate-500">Cargando tareas...</div>
+          <div className="p-8 text-center text-sm text-ink-muted">Cargando tareas...</div>
         </Card>
       ) : tasks.length === 0 ? (
         <Card>
           <div className="p-12 text-center">
-            <p className="text-slate-700 font-medium mb-1">
+            <p className="text-ink-soft font-medium mb-1">
               {filter === 'pending'   && 'No tienes tareas pendientes 🎉'}
               {filter === 'completed' && 'No tienes tareas completadas todavía'}
               {filter === 'all'       && 'No tienes tareas todavía'}
             </p>
-            <p className="text-sm text-slate-500 mb-4">
+            <p className="text-sm text-ink-muted mb-4">
               {filter === 'pending'
                 ? 'Buen trabajo manteniendo todo al día.'
                 : 'Crea una nueva tarea para empezar.'}
@@ -147,21 +147,21 @@ export default function TasksPage() {
         </Card>
       ) : (
         <Card>
-          <ul className="divide-y divide-slate-200">
+          <ul className="divide-y divide-line">
             {tasks.map(task => {
               const completed = !!task.completed;
               const overdue   = isOverdue(task.due_date, completed);
               return (
                 <li
                   key={task.id}
-                  className="flex items-start gap-3 px-5 py-3 hover:bg-slate-50"
+                  className="flex items-start gap-3 px-5 py-3 hover:bg-surface-hover"
                 >
                   <button
                     onClick={() => handleToggle(task)}
                     className={`mt-0.5 w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all flex-shrink-0 ${
                       completed
-                        ? 'bg-navy-900 border-navy-900 text-white'
-                        : 'bg-white border-slate-300 hover:border-navy-500 hover:bg-navy-50'
+                        ? 'bg-primary border-primary text-primary-fg'
+                        : 'bg-surface border-line-strong hover:border-primary hover:bg-primary-soft'
                     }`}
                     title={completed ? 'Marcar como pendiente' : 'Marcar como completada'}
                   >
@@ -170,22 +170,22 @@ export default function TasksPage() {
 
                   <div className="flex-1 min-w-0">
                     <p className={`text-sm font-medium ${
-                      completed ? 'text-slate-400 line-through' : 'text-slate-900'
+                      completed ? 'text-ink-faint line-through' : 'text-ink'
                     }`}>
                       {task.title}
                     </p>
 
                     {task.description && (
                       <p className={`text-sm mt-0.5 ${
-                        completed ? 'text-slate-400' : 'text-slate-600'
+                        completed ? 'text-ink-faint' : 'text-ink-muted'
                       }`}>
                         {task.description}
                       </p>
                     )}
 
-                    <div className="flex items-center gap-3 mt-1.5 text-xs text-slate-500">
+                    <div className="flex items-center gap-3 mt-1.5 text-xs text-ink-muted">
                       {task.due_date && (
-                        <span className={overdue ? 'text-red-600 font-medium' : ''}>
+                        <span className={overdue ? 'text-danger font-medium' : ''}>
                           📅 {formatDate(task.due_date)}
                           {overdue && ' (vencida)'}
                         </span>
@@ -198,14 +198,14 @@ export default function TasksPage() {
                   <div className="flex gap-1">
                     <button
                       onClick={() => handleEdit(task)}
-                      className="p-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-700 rounded"
+                      className="p-1.5 text-ink-muted hover:bg-surface-active hover:text-ink-soft rounded"
                       title="Editar"
                     >
                       <Pencil size={14} />
                     </button>
                     <button
                       onClick={() => handleDelete(task)}
-                      className="p-1.5 text-slate-500 hover:bg-red-50 hover:text-red-600 rounded"
+                      className="p-1.5 text-ink-muted hover:bg-danger-soft hover:text-danger rounded"
                       title="Eliminar"
                     >
                       <Trash2 size={14} />
@@ -256,8 +256,8 @@ function FilterChip({ active, onClick, children }) {
       onClick={onClick}
       className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
         active
-          ? 'bg-navy-900 text-white'
-          : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50'
+          ? 'bg-primary text-primary-fg'
+          : 'bg-surface text-ink-soft border border-line-strong hover:bg-surface-hover'
       }`}
     >
       {children}
